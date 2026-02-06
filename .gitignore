@@ -1,0 +1,8 @@
+__pycache__/
+
+faktury/
+ksef-docs/
+venv/
+
+.env
+.ksef_state.json
