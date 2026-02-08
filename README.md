@@ -61,6 +61,19 @@ Pobrano 5 nowych faktur:
   - ...
 ```
 
+### Nadpisywanie konfiguracji
+
+Możesz podać token i NIP jako parametry, które nadpiszą wartości z `.env`:
+
+```bash
+python fetch_invoices.py --token twój-token-ksef --nip 1234567890
+```
+
+Parametry:
+- `--token` - Token KSeF (nadpisuje `KSEF_TOKEN` z `.env`)
+- `--nip` - NIP kontekstu (nadpisuje `CONTEXT_NIP` z `.env`)
+- `--format` - Format wyjścia: `json` (domyślny) lub `text`
+
 ## Jak działa
 
 1. **Uwierzytelnianie** - używa tokena KSeF

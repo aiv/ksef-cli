@@ -247,14 +247,22 @@ def main():
         default='json',
         help='Format outputu (domyślnie: json)'
     )
-    
+    parser.add_argument(
+        '--token',
+        help='Token KSeF (nadpisuje KSEF_TOKEN z .env)'
+    )
+    parser.add_argument(
+        '--nip',
+        help='NIP kontekstu (nadpisuje CONTEXT_NIP z .env)'
+    )
+
     args = parser.parse_args()
-    
+
     # Załaduj konfigurację
     load_dotenv()
-    
-    ksef_token = os.getenv('KSEF_TOKEN')
-    context_nip = os.getenv('CONTEXT_NIP')
+
+    ksef_token = args.token or os.getenv('KSEF_TOKEN')
+    context_nip = args.nip or os.getenv('CONTEXT_NIP')
     
     if not ksef_token or not context_nip:
         print(json.dumps({
